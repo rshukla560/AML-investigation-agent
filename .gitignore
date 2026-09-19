@@ -1,0 +1,36 @@
+# Environment variables — never commit these
+.env
+.env.local
+.env.production
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.Python
+*.egg-info/
+
+# Poetry
+# poetry.lock should be committed — do NOT add it here
+
+# Data — too large for git
+data/raw/
+data/processed/
+
+# Models — too large for git
+backend/models/*.pkl
+backend/models/*.joblib
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+
+# Docker
+.docker/
+
+# Pytest
+.pytest_cache/
+.coverage
