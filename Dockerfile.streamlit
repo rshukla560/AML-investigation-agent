@@ -1,0 +1,14 @@
+FROM python:3.13-slim
+
+WORKDIR /app
+
+COPY pyproject.toml poetry.lock ./
+
+RUN pip install poetry && poetry config virtualenvs.create false && poetry install --only main
+
+COPY frontend/ ./frontend/
+COPY backend/ ./backend/
+
+EXPOSE 8501
+
+CMD ["streamlit", "run", "frontend/dashboard.py", "--server.port=8501", "--server.address=0.0.0.0"]
