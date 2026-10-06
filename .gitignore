@@ -34,3 +34,6 @@ backend/models/*.joblib
 # Pytest
 .pytest_cache/
 .coverage
+
+# Jupyter notebooks — local exploration only
+experiment_notebook/
