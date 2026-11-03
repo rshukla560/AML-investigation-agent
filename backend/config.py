@@ -6,10 +6,10 @@ from typing import Optional
 class Settings(BaseSettings):
 
     # Anthropic — required, no default
-    #anthropic_api_key: str
+    anthropic_api_key: str
 
     # Qdrant — defaults work for Docker Compose
-    qdrant_host: str = "qdrant"
+    qdrant_host: str = "qdrant" # at level  3 for pydantoc to find value of varibale qdrant_host
     qdrant_port: int = 6333
     qdrant_collection: str = "aml_entities"
 

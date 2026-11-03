@@ -6,7 +6,7 @@ services:
       - "8000:8000"
     environment:
       - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
-      - QDRANT_HOST=qdrant
+      - QDRANT_HOST=qdrant #level 1 for settings pydantic because docker compose yaml is runnig process
       - QDRANT_PORT=6333
       - POSTGRES_URL=postgresql://aml_user:aml_password@postgres:5432/aml_investigations
       - KAFKA_BROKER=kafka:9092

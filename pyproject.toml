@@ -2,12 +2,13 @@
 name = "aml-investigation-agent"
 version = "0.1.0"
 description = "Autonomous AML Investigation Agent"
-authors = [
-    {name = "Rohit Shukla", email = "rshukla560@gmail.com"}
-]
+authors = [ {name = "Rohit Shukla", email = "rshukla560@gmail.com"}]
+
+
 license = "MIT"
 readme = "README.md"
 requires-python = ">=3.13, <4.0"
+
 
 dependencies = [
     "fastapi",
@@ -33,16 +34,14 @@ dependencies = [
     "streamlit",
     "kafka-python",
     "pyarrow",
+    "sentence-transformers"
 ]
 
-[project.optional-dependencies]
-dev = [
-    "pytest",
-    "pytest-asyncio",
-    "ragas>=0.2.0",
-    "evidently",
-    "httpx",
-]
+[tool.poetry.group.dev.dependencies]
+pytest = "*"
+pytest-asyncio = "*"
+ragas = ">=0.2.0"
+evidently = "*"
 
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
@@ -50,3 +49,6 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.poetry]
 package-mode = false
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
