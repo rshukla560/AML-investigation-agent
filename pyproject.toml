@@ -4,11 +4,9 @@ version = "0.1.0"
 description = "Autonomous AML Investigation Agent"
 authors = [ {name = "Rohit Shukla", email = "rshukla560@gmail.com"}]
 
-
 license = "MIT"
 readme = "README.md"
 requires-python = ">=3.13, <4.0"
-
 
 dependencies = [
     "fastapi",
@@ -34,8 +32,8 @@ dependencies = [
     "streamlit",
     "kafka-python",
     "pyarrow",
-    "sentence-transformers"
-]
+    "sentence-transformers",
+    "torch"]                # named explicitly so we can choose its source this section is main
 
 [tool.poetry.group.dev.dependencies]
 pytest = "*"
@@ -49,6 +47,15 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.poetry]
 package-mode = false
+
+# PyTorch's CPU-only wheels (no nvidia-* / cuda-* packages)
+[[tool.poetry.source]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+priority = "explicit"              # used only by packages that name it
+
+[tool.poetry.dependencies]
+torch = { source = "pytorch-cpu" }
 
 [tool.pytest.ini_options]
 pythonpath = ["."]
